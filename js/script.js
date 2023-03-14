@@ -51,7 +51,12 @@ createApp({
         selectImg(index){
             this.active = index;
           }
-      }
+      },
+      mounted(){
+        setInterval(() => {
+            return this.nxtImg();
+          }, 3 * 1000);
+    }
 }
 ).mount('#app');
 
