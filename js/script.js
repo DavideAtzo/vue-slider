@@ -38,25 +38,29 @@ createApp({
     methods: {
         prevImg() {
             this.active--;
-            if(this.active < 0){
-              this.active = this.slides.length - 1;
-            }          
-          },
-        nxtImg() {
-          this.active++;
-           if(this.active > this.slides.length - 1){
-             this.active = 0;
-           }
+            if (this.active < 0) {
+                this.active = this.slides.length - 1;
+            }
         },
-        selectImg(index){
+        nxtImg() {
+            this.active++;
+            if (this.active > this.slides.length - 1) {
+                this.active = 0;
+            }
+        },
+        selectImg(index) {
             this.active = index;
-          }
-      },
-      mounted(){
-        setInterval(() => {
-            return this.nxtImg();
-          }, 3 * 1000);
-    }
+        },
+        autoPlay() {
+            setInterval(() => {
+                return this.nxtImg();
+            }, 3 * 1000)
+        }
+
+    },
+    mounted() {
+        this.autoPlay()
+    },
 }
 ).mount('#app');
 
